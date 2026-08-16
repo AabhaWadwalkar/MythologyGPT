@@ -1,29 +1,18 @@
-from fastapi import FastAPI, Request
+from fastapi import Request,APIRouter
 from app.services.rag_service import answer_question
-from fastapi.middleware.cors import CORSMiddleware
+from app.models.qa_model import Item
 
-app = FastAPI()
+router = APIRouter()
 
-localhost = "http://localhost:3000"
+@router.post("/ask")
+async def ask_questions(request: Item):
+    question =  request.question
+    print("daaaaattttaaaaa:",question)
+    if not question:
+        return {"error": "Question is required"}
+    answer = await answer_question(question)
+    print("annnnnnnnnnsssssss:",answer)
+    return {"answer" : answer}
 
-cors_config = {
-    "allow_origins": [localhost],
-    "allow_credentials": True,
-    "allow_methods": ["*"],
-}
-
-app.add(CORSMiddleware, **cors_config)
-
-
-@app.post("/ask")
-async def ask_questions(request: Request):
-    data = await request.json()
-    print("daaaaattttaaaaa:",data)
-    if len(data)==0:
-        return {"error": "Invalid input"}
-    else:
-        ans = answer_question(data)
-        print("annnnnnnnnnsssssss:",ans)
-    return ans
 
 

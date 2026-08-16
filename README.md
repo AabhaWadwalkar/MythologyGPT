@@ -45,7 +45,7 @@ If `MONGODB_URI` is omitted, the application defaults to `mongodb://localhost:27
 
 ```powershell
 cd backend
-uvicorn app.main:app --reload
+uvicorn app.main:app --port 8000 --reload
 ```
 
 The server starts at <http://127.0.0.1:8000>. Available endpoints are:
@@ -110,3 +110,16 @@ The script currently searches for the fixed question `Who is Odin?` and prints t
 │       └── utils/
 └── README.md
 ```
+
+
+
+
+
+Create a new chat in the Project and ask something like:
+
+"I want you to reconstruct the complete history of this Project. Use the previous conversations in this Project as your sources. Analyze them together rather than treating this as a summary of only the current chat. Give me: (1) the chronological flow, (2) what we originally intended, (3) major ideas and decisions, (4) how those decisions changed over time, (5) important information discovered, (6) unresolved questions/problems, and (7) the current state and next logical steps. If something cannot be determined from the project conversations, explicitly say so rather than inventing it."
+
+So the short answer is:
+
+Yes ✅ — you can open a fresh chat inside your Project and ask it to synthesize the previous chats in that Project.
+No ⚠️ — don't assume it is literally loading every message from every chat verbatim; it retrieves/uses relevant project context.

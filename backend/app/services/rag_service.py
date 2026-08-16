@@ -1,6 +1,7 @@
 import asyncio
 from app.services.embedding_service import generate_embedding
 from app.db.mongo import db
+from app.services.agent_service import generate_llm_response
 
 collection = db["RAG Documents"]
 
@@ -26,8 +27,9 @@ async def answer_question(question: str):
     context = "\n".join(documents)
 
     prompt = f"Answer the question using only the information provided in the context below.If the answer cannot be found in the context, say 'Context not found'.Do not use outside knowledge or make up information. :\n\nContext: {context}\n\n Question: {question}\n\nAnswer:"
-    # print(prompt)
-    return prompt
+    answer = generate_llm_response(prompt)
+    # print(rec_prompt_ans)
+    return answer
         
 
 
