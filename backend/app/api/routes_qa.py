@@ -1,10 +1,10 @@
-from fastapi import Request,APIRouter
+from fastapi import APIRouter
 from app.services.rag_service import answer_question
 from app.models.qa_model import Item
 
-router = APIRouter()
+qa_router = APIRouter()
 
-@router.post("/ask")
+@qa_router.post("/ask")
 async def ask_questions(request: Item):
     question =  request.question
     print("daaaaattttaaaaa:",question)
@@ -12,7 +12,7 @@ async def ask_questions(request: Item):
         return {"error": "Question is required"}
     answer = await answer_question(question)
     print("annnnnnnnnnsssssss:",answer)
-    return {"answer" : answer}
+    return {"response" : answer}
 
 
 

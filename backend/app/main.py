@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from app.db.mongo import testing_connection
 from app.db.mongo import db
-from app.api.routes_qa import router
+from app.api.routes_qa import qa_router
+from app.api.routes_compare import compare_router
+from app.api.routes_story import story_router
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -18,7 +20,9 @@ cors_config = {
 
 app.add_middleware( CORSMiddleware,**cors_config)
 
-app.include_router(router)
+app.include_router(qa_router)
+app.include_router(compare_router)
+app.include_router(story_router)
 
 @app.get("/")
 def test():
