@@ -1,7 +1,5 @@
-
-// import './App.css'
+import './App.css'
 import { BrowserRouter, Route,Routes } from 'react-router'
-import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home/Home';
 import { Chat } from './pages/Chat/Chat'
 import { Compare } from './pages/Compare/Compare';

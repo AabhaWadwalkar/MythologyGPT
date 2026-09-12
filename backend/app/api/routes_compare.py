@@ -10,4 +10,4 @@ async def receive_req(request: comparisonRequest):
     god1 = request.god1
     god2 = request.god2
     ans = await comparing_gods(god1,god2)
-    return {"response":ans}
+    return ans

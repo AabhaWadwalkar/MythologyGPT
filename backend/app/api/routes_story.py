@@ -8,5 +8,6 @@ story_router = APIRouter()
 async def create_story(request: storyRequest):
     topic = request.topic
     ans = await generate_story(topic)
-    return {"response": ans}
+    # return {"response": ans}
+    return ans
 

@@ -35,6 +35,6 @@ STORY:
 """
     try:
         ans = generate_llm_response(story_prompt)
-        return {"Story for topic will be displayed here": ans}
+        return {"response": ans}
     except Exception:
         return {"response": "Unable to generate story"}

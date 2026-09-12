@@ -1,0 +1,345 @@
+.god-detail-page {
+  width: 100%;
+  padding-bottom: 90px;
+}
+
+/* =========================
+   LOADING / ERROR
+========================= */
+
+.god-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.god-loading-symbol {
+  margin-bottom: 12px;
+  color: var(--gold-light);
+  font-size: 25px;
+  animation: godPulse 1.5s infinite ease-in-out;
+}
+
+.god-loading p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@keyframes godPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.god-error {
+  max-width: 700px;
+  margin: 70px auto;
+  padding: 14px 18px;
+  border: 1px solid rgba(229, 115, 115, 0.25);
+  border-radius: var(--radius-sm);
+  color: var(--error);
+  background: rgba(229, 115, 115, 0.06);
+  text-align: center;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.god-hero {
+  position: relative;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 85px 20px 70px;
+  text-align: center;
+}
+
+.god-hero::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 550px;
+  height: 350px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 79, 0.07),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.god-hero-symbol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 25px;
+  border: 1px solid rgba(212, 168, 79, 0.4);
+  border-radius: 50%;
+  color: var(--gold-light);
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 79, 0.12),
+    transparent 70%
+  );
+  font-size: 27px;
+  box-shadow: 0 0 35px rgba(212, 168, 79, 0.1);
+}
+
+.god-eyebrow {
+  position: relative;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.god-hero h1 {
+  position: relative;
+  margin-bottom: 10px;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+.god-role {
+  position: relative;
+  margin: 0;
+  color: var(--violet-light);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.god-hero-line {
+  position: relative;
+  width: 120px;
+  height: 1px;
+  margin: 30px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+.god-description {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.god-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.god-info-card {
+  padding: 30px;
+}
+
+.god-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.god-card-heading > span {
+  color: var(--gold-light);
+  font-size: 18px;
+}
+
+.god-card-heading h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.god-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.god-tags span {
+  padding: 7px 12px;
+  border: 1px solid rgba(212, 168, 79, 0.2);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  background: rgba(212, 168, 79, 0.045);
+  font-size: 0.8rem;
+}
+
+/* =========================
+   RELATIONSHIPS
+========================= */
+
+.relationships-card {
+  grid-column: 1 / -1;
+}
+
+.relationship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.relationship-group {
+  padding: 18px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.relationship-group h3 {
+  margin-bottom: 12px;
+  color: var(--gold-light);
+  font-size: 0.95rem;
+}
+
+.relationship-group p {
+  margin: 5px 0;
+  font-size: 0.85rem;
+}
+
+.relationship-group .not-available {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* =========================
+   STORIES
+========================= */
+
+.story-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.story-item {
+  display: flex;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.story-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.story-item > span {
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.story-item p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* =========================
+   SOURCES
+========================= */
+
+.sources-card {
+  grid-column: 1 / -1;
+}
+
+.source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.source-list p {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.source-list p span {
+  color: var(--gold);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+  .god-hero {
+    padding: 60px 20px 50px;
+  }
+
+  .god-content {
+    grid-template-columns: 1fr;
+  }
+
+  .relationships-card,
+  .sources-card {
+    grid-column: auto;
+  }
+
+  .relationship-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .god-hero h1 {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+  .god-hero-symbol {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
+  }
+
+  .god-content {
+    padding: 0 15px;
+  }
+
+  .god-info-card {
+    padding: 24px;
+  }
+
+  .story-item {
+    gap: 12px;
+  }
+}

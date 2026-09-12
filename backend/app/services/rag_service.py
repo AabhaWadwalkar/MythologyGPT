@@ -8,10 +8,12 @@ collection = db["RAG Documents"]
 
 async def answer_question(question: str):
     data = await retrieve_documents(question)
+    # print("Retrived daaaaaaaaaaaaatttttaaaaaaaaaaa:", data)
     if not data:
         return "No context found"
     prompt = f"Answer the question using only the information provided in the context below.If the answer cannot be found in the context, say 'Context not found'.Do not use outside knowledge or make up information. :\n\nContext: {data}\n\n Question: {question}\n\nAnswer:"
     try:
+        # print("Proooooooommmpt:", prompt)
         answer = generate_llm_response(prompt)
         return answer
     except Exception:
