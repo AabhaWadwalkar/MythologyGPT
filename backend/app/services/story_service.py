@@ -23,13 +23,15 @@ STRICT GROUNDING RULES:
 6. Every factual statement in your story must be supported by the context.
 7. You may rearrange and connect facts that are explicitly present in the context to make the narrative readable, but you must not create new events or details.
 8. If the context contains only a few facts, create a short story using only those facts. Do NOT expand it with outside mythology.
-9. If the context does not contain enough information to create a story, respond exactly with:
+9. If the context contains no useful factual information about the requested topic, respond exactly with:
    "No context found. The provided knowledge base does not contain enough information to tell this story."
+10. Do not add descriptive details, motivations, emotions, consequences, character traits, or explanations unless they are explicitly stated in the context.
+11. Do not add introductory or concluding commentary about the limitations or length of the context. Output only the story.
+   
 
 IMPORTANT:
-Before generating the story, mentally verify that every factual detail you intend to include appears in the context.
-
-Write the story in a clear and engaging narrative style while remaining completely faithful to the provided context.
+Before generating the story, verify that every factual detail you include is supported by the context. 
+Do not add details simply to make the story more elaborate.
 
 STORY:
 """
